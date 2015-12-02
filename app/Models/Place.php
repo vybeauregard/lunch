@@ -16,9 +16,9 @@ class Place extends Model
     public $timestamps  = false;
 
     protected $table = "place";
-    
+
     public function cuisine() {
         return $this->belongsToMany('App\Models\Cuisine', 'place_cuisine', 'place_id', 'cuisine_id');
     }
-    
+
 }
