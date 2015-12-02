@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', 'CalendarController@index');
-Route::get('/visit/{date}/create', 'CalendarController@create');
-Route::get('/visit/{date}/edit', 'CalendarController@edit');
-Route::patch('/visit/{date}/update', 'CalendarController@update');
-
+Route::get('/', 'VisitController@index');
 Route::resource('cuisine', 'CuisineController');
-
 Route::resource('location', 'LocationController');
+
+Route::resource('visit', 'VisitController', ['except' => 'create']);
+Route::get('visit/{visit}/create', 'VisitController@create');

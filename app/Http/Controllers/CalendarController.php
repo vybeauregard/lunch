@@ -43,7 +43,7 @@ class CalendarController extends Controller
     public function create($date)
     {
         $visit = new Visit();
-        $visit->date = Carbon::createFromFormat('U', $date);
+        $visit->date = Carbon::createFromFormat('U', $date)->format('Y-m-d');
         $visit->place = new Place();
         $places = Place::where('active', '=', 1)->orderBy('placename')->lists('placename', 'id')->all();
         return view('calendar.create', compact('visit', 'places'));
@@ -57,7 +57,7 @@ class CalendarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -79,7 +79,7 @@ class CalendarController extends Controller
      */
     public function edit($date)
     {
-        $date = Carbon::createFromFormat('U', $date);
+        $date = Carbon::createFromFormat('U', $date)->format('Y-m-d');
         $visit = Visit::where('date', '=', $date)->with('place')->first();
         $places = Place::where('active', '=', 1)->orderBy('placename')->lists('placename', 'id')->all();
         return view('calendar._edit', compact('visit', 'places'));
@@ -92,9 +92,13 @@ class CalendarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $date)
     {
-        //
+        $date = Carbon::createFromFormat('U', $date)->format('Y-m-d');
+        $visit = Visit::where('date', '=', $date)->with('place')->first();
+        $input = $request->all();
+        $visit->fill($input)->save();
+        return redirect()->back();
     }
 
     /**
