@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', 'VisitController@index');
+Route::get('/', 'CalendarController@index');
 Route::resource('cuisine', 'CuisineController');
 Route::resource('location', 'LocationController');
+Route::resource('calendar', 'CalendarController');
 
 Route::resource('visit', 'VisitController', ['except' => 'create']);
 Route::get('visit/{visit}/create', 'VisitController@create');

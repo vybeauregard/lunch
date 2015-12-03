@@ -22,8 +22,8 @@ class VisitController extends Controller
         $begin = Carbon::parse("2 mondays ago");
         $end = Carbon::parse("next Sunday");
         $visits = Visit::with('place')
-            ->where('date', '>', $begin)
-            ->where('date', '<', $end)
+            ->where('date', '>=', $begin)
+            ->where('date', '<=', $end)
             ->get();
         $visits = $visits->keyBy('date');
         $datelist = [];
@@ -41,11 +41,21 @@ class VisitController extends Controller
      */
     public function create($date)
     {
-        $visit = new Visit();
-        $visit->date = Carbon::createFromFormat('U', $date)->format('Y-m-d');
-        $visit->place = new Place();
-        $places = Place::where('active', '=', 1)->orderBy('placename')->lists('placename', 'id')->all();
-        return view('visit.create', compact('visit', 'places'));
+        $udate = $date;
+        $date = Carbon::createFromFormat('U', $date)->format('Y-m-d');
+        $visit = Visit::where('date', '=', $date)->with('place')->first();
+        if(!is_null($visit)) {
+            return redirect()->route('visit.edit', [$udate]);
+        } else {
+            $visit = new Visit();
+            $visit->date = $date;
+            $visit->place = new Place();
+            $places = Place::where('active', '=', 1)
+                ->orderBy('placename')
+                ->lists('placename', 'id')
+                ->all();
+            return view('visit.create', compact('visit', 'places'));
+        }
     }
 
     /**
@@ -59,7 +69,6 @@ class VisitController extends Controller
         $input = $request->all();
         $visit = new Visit;
         $visit->fill($input)->save();
-        return $visit;
         return redirect('/');
     }
 
