@@ -31,24 +31,31 @@ class CalendarController extends Controller
      */
     public function show($date)
     {
-        $date = Carbon::createFromFormat('U', $date)->startOfWeek()->toDateString();
-        $begin = Carbon::parse($date);
-        $end = Carbon::parse($date);
-        $end = $end->addDays(20);
-        $datelist = [];
-        while($begin->lte($end)) {
-            $datelist[] = $begin->toDateString();
-            $begin = $begin->addDay();
-        }
-        $begin = Carbon::parse($date);
-        $end = Carbon::parse($date);
-        $end = $end->addDays(20);
+        $datelist = $this->getDateList($date);
         $visits = Visit::with('place')
-            ->where('date', '>=', $begin->format('Y-m-d'))
-            ->where('date', '<=', $end->format('Y-m-d'))
+            ->where('date', '>=', head($datelist))
+            ->where('date', '<=', last($datelist))
             ->get();
-        // return [$begin->format('Y-m-d'), $end->format('Y-m-d')];
         $visits = $visits->keyBy('date');
         return view('calendar.index', compact('visits', 'datelist'));
     }
+
+    /**
+     * Get an array of dates
+     *
+     * @param int $date
+     * @return array
+     */
+     protected function getDateList($date)
+     {
+         $date = Carbon::createFromFormat('U', $date)->startOfWeek()->toDateString();
+         $begin = Carbon::parse($date);
+         $end = Carbon::parse($date);
+         $end = $end->addDays(20);
+         while($begin->lte($end)) {
+             $datelist[] = $begin->toDateString();
+             $begin = $begin->addDay();
+         }
+         return $datelist;
+     }
 }
