@@ -18,10 +18,9 @@
 
             .container {
                 text-align: center;
-                display: table-cell;
                 vertical-align: middle;
             }
-            
+
             .content {
                 text-align: center;
                 display: inline-block;
