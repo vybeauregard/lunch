@@ -17,15 +17,16 @@ Lunch!
         {!! Form::model($place, ['method' => 'POST', 'action' => ['PickController@store']]) !!}
         {!! Form::hidden('place_id', $place->id) !!}
         {!! Form::hidden('date', Carbon\Carbon::now()->format('Y-m-d')) !!}
-        {!! Form::submit('Sounds good!', ['class' => 'btn btn-lg btn-primary']) !!}
+        {!! Form::submit('Sounds good!', ['class' => 'btn btn-lg btn-success']) !!}
         {!! form::close() !!}
     </div>
-    <hr />
     <div class="row">
-        <a href="{{ route('pick.index') }}" class="btn btn-lg btn-primary">I'm not feeling it. What else you got?</a>
-    </div>
-    <hr />
-    <div class="row">
-        <a href="{{ url('/visit', Carbon\Carbon::now()->format('U')) }}/create" class="btn btn-lg btn-primary">I'm an adult. I do what I want.</a>
+    <div class="row"><div class="col-md-12"></div></div>
+        <div class="col-md-6">
+            <a href="{{ route('pick.index') }}" class="btn btn-lg btn-warning">Not feeling it.<br />What else you got?</a>
+        </div>
+        <div class="col-md-6">
+            <a href="{{ url('/visit', Carbon\Carbon::now()->format('U')) }}/create" class="btn btn-lg btn-primary">I'm an adult.<br />I do what I want.</a>
+        </div>
     </div>
 @stop
