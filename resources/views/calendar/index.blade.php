@@ -5,7 +5,7 @@ Lunch!
 @stop
 
 @section('content')
-    <h5>Select a Day. {{ Carbon\Carbon::parse($datelist[0])}}</h5>
+    <h5>Select a Day.</h5>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead class="table-header">
