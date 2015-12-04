@@ -18,3 +18,5 @@ Route::resource('calendar', 'CalendarController', ['except' => ['create', 'edit'
 
 Route::resource('visit', 'VisitController', ['except' => 'create']);
 Route::get('visit/{visit}/create', 'VisitController@create');
+
+Route::resource('pick', 'PickController', ['except' => ['create', 'edit', 'update', 'destroy']]);
