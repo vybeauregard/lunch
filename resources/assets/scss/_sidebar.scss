@@ -1,0 +1,431 @@
+/* Main Content margin setting for sidebar configurations */
+body.site-sidebar #main-content-wrapper,
+body.page-sidebar #main-content {
+	margin-left: $sidebar-width;
+}
+
+body.site-sidebar.site-sidebar-closed #main-content-wrapper,
+body.page-sidebar.page-sidebar-closed #main-content {
+	margin-left: $sidebar-closed-width;
+}
+
+/* Page Header H1 padding setting for main sidebar configurations */
+body.site-sidebar #page-header {
+	padding-left: $sidebar-width;
+}
+body.site-sidebar.site-sidebar-closed #page-header {
+	padding-left: $sidebar-closed-width;
+}
+
+
+/* Sidebar */
+#site-sidebar-wrapper {
+	background-color: $sidebar-bg-color;
+	position: absolute;
+	z-index: 110;
+}
+.sidebar {
+	display: block;
+	padding: 10px;
+	width: $sidebar-width;
+	background-color: $sidebar-bg-color;
+	color: $sidebar-text-color;
+	border: none;
+	bottom: 0;
+	left: 0;
+	a {
+		color: $sidebar-text-color;
+		line-height: 28px;
+		display: block;
+		width: 100%;
+	}
+	.fa {
+		vertical-align: middle;
+		padding: 6px 0 0 5px;
+		float: left;
+		display: block;
+		margin-right: 5px;
+	}
+	.nav > li {
+		clear: both;
+		position: relative;
+		margin-bottom: 10px;
+		&.active {
+			.title-wrapper {
+				background-color: $sidebar-highlight-color;
+			}
+		}
+		.title-wrapper {
+			display: block;
+			line-height: 28px;
+			padding: 0;
+			@include border-radius(5px);
+			&:hover,
+			&:focus {
+				background-color: lighten($sidebar-highlight-color, 5%);
+			}
+			span + i {
+				float: right;
+				margin: 0 5px 0 0;
+				padding: 5px 0 0;
+			}
+			a {
+				@include border-radius(5px);
+				padding: 0 5px;
+			}
+		}
+	}
+	li.sidebar-toggler-wrapper {
+		text-align: right;
+		margin-bottom: 20px;
+		i {
+			padding: 5px 11px;
+			background-color: $sidebar-toggle-bg-color;
+			color: $sidebar-toggle-text-color;
+		}
+		.fa {
+			float: none;
+			display: inline-block;
+			margin: 0;
+		}
+	}
+	li.has-sub-menu .title-wrapper:hover {
+		cursor: pointer;
+	}
+	li.has-sub-menu > ul.sub-menu {
+		display: none;
+	}
+	li.has-sub-menu.open > ul.sub-menu {
+		display: block;
+	}
+	li.has-sub-menu.open > .title-wrapper i.fa-angle-right:before {
+		content: "\f107";
+	}
+	.sub-menu {
+		list-style: none;
+		padding: 0 0 0 18px;
+		li {
+			clear: both;
+			padding: 0;
+			@include border-radius(5px);
+			&.active {
+				background-color: $sidebar-highlight-color;
+			}
+			&:not(.has-sub-menu) {
+				&:hover,
+				&:focus {
+					background-color: lighten($sidebar-highlight-color, 5%); // NEED to rethink this for nested menus
+				}
+			}
+
+			a {
+				@include border-radius(5px);
+				padding: 0 5px;
+			}
+			&.has-sub-menu .title {
+				padding-left: 5px;
+			}
+		}
+	}
+	.badge {
+		float: right;
+		margin-right: 10px;
+	}
+}
+
+/* Secondary Sidebar */
+#page-sidebar-wrapper {
+	position: absolute;
+	background-color: $page-sidebar-bg-color;
+	z-index: 105;
+	left: $sidebar-width;
+	top: $page-header-h1-height;
+}
+body.site-sidebar.site-sidebar-closed #page-sidebar-wrapper {
+	left: $sidebar-closed-width;
+}
+#page-sidebar.sidebar {
+	z-index: 105;
+	padding-top: 10px;
+	padding-bottom: $footer-height;
+	background-color: $page-sidebar-bg-color;
+	color: $page-sidebar-text-color;
+	a {
+		color: $page-sidebar-text-color;
+	}
+	.title-wrapper {
+		&:hover,
+		&:focus {
+			background-color: lighten($page-sidebar-bg-color, 10%);
+		}
+	}
+	.nav > li {
+		&.active {
+			.title-wrapper {
+				background-color: lighten($page-sidebar-bg-color, 10%);
+			}
+		}
+		.title-wrapper {
+			&:hover,
+			&:focus {
+				background-color: lighten($page-sidebar-bg-color, 20%);
+			}
+		}
+	}
+	.sub-menu {
+		li {
+			&:not(.has-sub-menu) {
+				&:hover,
+				&:focus {
+					background-color: lighten($page-sidebar-bg-color, 20%);
+				}
+			}
+		}
+	}
+}
+
+/* Sidebar Closed */
+body.site-sidebar-closed #site-sidebar,
+body.page-sidebar-closed #page-sidebar.sidebar {
+	width: $sidebar-closed-width;
+	padding-left: 0;
+	padding-right: 0;
+	.nav > li {
+		&.active {
+			.fa {
+				background-color: $sidebar-highlight-color;
+			}
+		}
+	}
+	.sidebar-toggler-wrapper {
+		text-align: center;
+	}
+	li:not(.sidebar-toggler-wrapper) .fa {
+		width: 100%;
+		line-height: 36px;
+		padding: 0;
+	}
+	ul.sub-menu {
+		padding: 5px 5px 5px 10px;
+		width: $sidebar-width;
+		left: $sidebar-closed-width;
+	}
+	.title-wrapper {
+		padding: 5px 5px 3px 15px;
+		width: $sidebar-width;
+		left: $sidebar-closed-width;
+
+		+ ul.sub-menu li.has-sub-menu {
+			position: relative;
+			
+			.title-wrapper {
+				padding-left: 10px;
+				position: relative;
+				left: 0px;
+				width: $sidebar-width;
+				margin-left: -10px;
+			}
+		}
+	}
+	.title-wrapper,
+	li.has-sub-menu.open ul.sub-menu,
+	li.has-sub-menu ul.sub-menu {
+		display: none;
+		@include border-radius(0);
+		background-color: lighten($sidebar-bg-color, 5%);
+		z-index: 1;
+		position: absolute;
+
+		i.fa-angle-right {
+			display: none;
+		}
+	}
+}
+
+body.site-sidebar-closed:not(.mobile) #site-sidebar,
+body.page-sidebar-closed:not(.mobile) #page-sidebar.sidebar {
+	li.has-sub-menu:hover > ul.sub-menu,
+	li.has-sub-menu.open:hover > ul.sub-menu {
+		top: 36px;
+	}
+	li:hover > .title-wrapper,
+	li:hover > .fa,
+	li.active:hover > .fa {
+		background-color: lighten($sidebar-highlight-color, 5%);
+	}
+	
+	.sub-menu > .has-sub-menu {
+		i {
+			display: none;
+		}
+
+		> .sub-menu {
+			display: none;
+			position: absolute;
+			left: $sidebar-width;
+			top: 0px;
+			margin: -36px 0 0 -10px;
+		}
+	}
+	li.has-sub-menu.open:hover .title-wrapper,
+	li.has-sub-menu:hover .title-wrapper {
+		display: block;
+	}
+	
+	li:hover > .title-wrapper,
+	li.has-sub-menu:hover > ul.sub-menu,
+	li.has-sub-menu.open:hover > ul.sub-menu {
+		display: block;
+	}
+}
+
+body.mobile.site-sidebar-closed #site-sidebar,
+body.mobile.page-sidebar-closed #page-sidebar.sidebar {
+	li.has-sub-menu.selected > ul.sub-menu,
+	li.has-sub-menu.open.selected > ul.sub-menu {
+		top: 36px;
+	}
+	li.selected > .title-wrapper,
+	li.selected > .fa,
+	li.active.selected > .fa {
+		background-color: lighten($sidebar-highlight-color, 5%);
+	}
+	
+	.sub-menu > .has-sub-menu {
+		i {
+			display: none;
+		}
+
+		> .sub-menu {
+			display: none;
+			position: absolute;
+			left: $sidebar-width;
+			top: 0px;
+			margin: -36px 0 0 -10px;
+		}
+	}
+	li.has-sub-menu.open.selected .title-wrapper,
+	li.has-sub-menu.selected .title-wrapper {
+		display: block;
+	}
+	
+	li.selected > .title-wrapper,
+	li.has-sub-menu.selected > ul.sub-menu,
+	li.has-sub-menu.open.selected > ul.sub-menu {
+		display: block;
+	}
+}
+
+
+#site-sidebar li.sidebar-toggler-wrapper,
+body.site-sidebar-closed #site-sidebar li.sidebar-toggler-wrapper {
+	> i {
+		background-color: $sidebar-toggle-bg-color;
+		color: $sidebar-toggle-text-color;
+		&:hover,
+		&:focus {
+			background-color: $sidebar-toggle-bg-color-active;
+			color: $sidebar-toggle-text-color-active;
+		}
+	}
+	&:hover,
+	&:focus {
+		background-color: transparent;
+		> i {
+			background-color: $sidebar-toggle-bg-color;
+			color: $sidebar-toggle-text-color;
+			&:hover,
+			&:focus {
+				background-color: $sidebar-toggle-bg-color-active;
+				color: $sidebar-toggle-text-color-active;
+			}
+		}
+	}
+}
+
+body.page-sidebar-closed #page-sidebar.sidebar {
+	.nav > li {
+		&.active {
+			> .fa {
+				background-color: lighten($page-sidebar-bg-color, 10%);
+			}
+		}
+	}
+	.title-wrapper,
+	li.has-sub-menu.open ul.sub-menu,
+	li.has-sub-menu ul.sub-menu {
+		background-color: lighten($page-sidebar-bg-color, 5%);
+	}
+}
+
+body.page-sidebar-closed:not(.mobile) #page-sidebar.sidebar {
+	li.active:hover > .fa {
+		background-color: lighten($page-sidebar-bg-color, 20%);
+	}
+	li:hover .title-wrapper,
+	li:hover > .fa,
+	li.active:hover > .fa {
+		background-color: lighten($page-sidebar-bg-color, 20%);
+	}
+	li.has-sub-menu > .sub-menu > li.has-sub-menu{
+		.title-wrapper {
+			background-color: transparent;
+		}
+		&:hover .title-wrapper {
+			background-color: lighten($page-sidebar-bg-color, 20%);
+		}
+	}
+}
+
+body.page-sidebar-closed.mobile #page-sidebar.sidebar {
+	li.active.selected > .fa {
+		background-color: lighten($page-sidebar-bg-color, 20%);
+	}
+	li.selected .title-wrapper,
+	li.selected > .fa,
+	li.active.selected > .fa {
+		background-color: lighten($page-sidebar-bg-color, 20%);
+	}
+	li.has-sub-menu > .sub-menu > li.has-sub-menu{
+		.title-wrapper {
+			background-color: transparent;
+		}
+		&.selected .title-wrapper {
+			background-color: lighten($page-sidebar-bg-color, 20%);
+		}
+	}
+}
+
+#page-sidebar.sidebar li.sidebar-toggler-wrapper,
+body.page-sidebar-closed #page-sidebar.sidebar li.sidebar-toggler-wrapper {
+	> i {
+		background-color: $page-sidebar-toggle-bg-color;
+		color: $page-sidebar-toggle-text-color;
+		&:hover,
+		&:focus {
+			background-color:$page-sidebar-toggle-bg-color-active;
+			color: $page-sidebar-toggle-text-color-active;
+		}
+	}
+	&:hover,
+	&:focus {
+		background-color: transparent;
+		> i {
+			background-color: $page-sidebar-toggle-bg-color;
+			color: $page-sidebar-toggle-text-color;
+			&:hover,
+			&:focus {
+				background-color:$page-sidebar-toggle-bg-color-active;
+				color: $page-sidebar-toggle-text-color-active;
+			}
+		}
+	}
+}
+body.site-sidebar-closed #site-sidebar li.sidebar-toggler-wrapper i:before,
+body.page-sidebar-closed #page-sidebar.sidebar li.sidebar-toggler-wrapper i:before {
+	content: "\f101";
+}
+body.site-sidebar-closed #site-sidebar li.has-sub-menu .title-wrapper,
+body.page-sidebar-closed #page-sidebar li.has-sub-menu .title-wrapper {
+	cursor: default;
+}

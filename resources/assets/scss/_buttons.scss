@@ -1,0 +1,92 @@
+/* .btn- Overrides */
+.btn-primary {
+	color: #fff;
+	background-color: $primary-button-color;
+	border-color: darken($primary-button-color, 5%);
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+	color: #fff;
+	background-color: darken($primary-button-color, 5%);
+	border-color: darken($primary-button-color, 10%);
+}
+.btn-primary .badge {
+	color: $primary-button-color;
+	background-color: #fff;
+}
+
+.btn-success {
+	background-color: $green;
+	border-color: darken($green,5%);
+}
+.btn-success:hover,
+.btn-success:focus,
+.btn-success.focus,
+.btn-success:active,
+.btn-success.active,
+.open > .dropdown-toggle.btn-success {
+	color: #fff;
+	background-color: darken($green, 5%);
+	border-color: darken($green, 10%);
+}
+.btn-success .badge {
+	color: $green;
+	background-color: #fff;
+}
+
+/* Button Gradients */
+.btn-gradient {
+	@include border-radius(99px);
+	background-image: linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.15));
+	box-shadow: none;
+	outline: none !important;
+	outline-offset: 0;
+}
+.btn-gradient:hover,
+.btn-gradient:focus,
+.btn-gradient.focus,
+.btn-gradient:active,
+.btn-gradient.active,
+.open > .dropdown-toggle.btn-gradient {
+	background-image: linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.15));
+	box-shadow: none;
+	outline: none !important;
+	outline-offset: 0;
+}
+.btn-gradient:active,
+.btn-gradient.active {
+	background-image: linear-gradient(rgba(0,0,0,0.2), rgba(255,255,255,0.15));
+}
+
+/* Buttons */
+.multi-step .btn-default.complete {
+	background-color: #e6e6e6;
+}
+.button-group {
+	margin: 15px 0;
+}
+.buttons-right {
+	text-align: right;
+	
+	.btn:not(:last-of-type) {
+		margin-right: 5px;
+	}
+}
+.buttons-left {
+	text-align: left;
+	
+	.btn:not(:first-of-type) {
+		margin-left: 5px;
+	}
+}
+.buttons-center {
+	text-align: center;
+	
+	.btn:not(:first-of-type) {
+		margin-left: 5px;
+	}
+}

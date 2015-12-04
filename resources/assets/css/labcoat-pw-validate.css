@@ -1,0 +1,20 @@
+#pw-validate-form {
+  display: table; }
+  #pw-validate-form label {
+    min-width: 130px;
+    text-align: right;
+    margin-right: 5px; }
+  #pw-validate-form #userPWRequire {
+    display: none;
+    padding: 15px 20px 5px;
+    max-width: 250px;
+    margin: 15px auto 10px; }
+    #pw-validate-form #userPWRequire ul {
+      padding-left: 10px;
+      list-style: none; }
+      #pw-validate-form #userPWRequire ul li.no .fa {
+        color: #cb2026; }
+      #pw-validate-form #userPWRequire ul li.yes .fa {
+        color: #3faa29; }
+        #pw-validate-form #userPWRequire ul li.yes .fa:before {
+          content: "\f00c"; }

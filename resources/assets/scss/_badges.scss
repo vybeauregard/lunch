@@ -1,0 +1,10 @@
+.badge {
+	font-size: 11px;
+	line-height: 14px;
+	font-weight: 300;
+	padding: 0 4px 1px;
+	border: none;
+	@include border-radius(0);
+	margin-top: 6px;
+	cursor: default;
+}

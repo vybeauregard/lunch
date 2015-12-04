@@ -1,0 +1,74 @@
+
+/* Tabs */
+.nav-tabs {
+	max-height: 42px;
+}
+
+.labcoat-style {
+	.nav .open {
+		a,
+		a:hover,
+		a:focus {
+			background-color: $tab_hover_bg_color;
+		}
+	}
+	.nav-tabs {
+		background-color: $tab_container_bg_color;
+		padding: 20px 10px 0;
+		max-height: 52px;
+		border-bottom: none;
+		
+		li {
+			background-color: $tab_bg_color;
+
+			a {
+				color: $tab_text_color;
+				line-height: 0.6;
+				border-radius: 6px 6px 0 0;
+				height: 32px;
+				
+				&:hover,
+				&:active,
+				&:focus {
+					border-color: $tab_bg_color $tab_bg_color $tab_active_bg_color;
+					background-color: $tab_hover_bg_color;
+				}
+				
+				i {
+					margin-right: 3px;
+				}
+			}
+
+			&.active a,
+			&.active a:hover,
+			&.active a:focus {
+				border-color: $tab_bg_color $tab_bg_color $tab_active_bg_color;
+				background-color: $tab_active_bg_color;
+				color: $tab_text_color;
+				text-decoration: none;
+			}
+
+			&.active ul.dropdown-menu li a {
+				background-color: $tab_hover_bg_color;
+			}
+
+			ul.dropdown-menu,
+			ul.dropdown-menu li {
+				background-color: $tab_hover_bg_color;
+			}
+		}
+		i.fa {
+			margin-bottom: -1px;
+			vertical-align: bottom;
+			
+			&.fa-lg {
+				font-size: 1.1em;
+			}
+		}
+	}
+	
+	.tab-content {
+		background-color: $tab_active_bg_color;
+		padding: 10px 5px 5px;
+	}
+}

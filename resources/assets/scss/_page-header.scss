@@ -1,0 +1,65 @@
+/* Page Header */
+/* See _sidebar.scss for some left padding settings */
+#page-header {
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	border: none;
+	height: $page-header-h1-height;
+	background-color: $header-bg-color;
+	text-align: center;
+	display: block;
+	width: 100%;
+	z-index: 101;
+	h1 {
+		font-size: 16px;
+		line-height: $page-header-h1-height;
+		font-weight: 300;
+		color: $header-text-color;
+		padding: 0;
+		margin: 0;
+	}
+	#page-help {
+		position: absolute;
+		z-index: 102;
+		right: 20px;
+		background-color: $header-bg-color;
+		color: $page-header-help-text-color;
+		font-size: 13px;
+		line-height: $page-header-h1-height;
+		text-align: left;
+		a {
+			color: inherit;
+		}
+		.fa {
+			margin-right: 5px;
+			font-size: 1.2em;
+		}
+	}
+}
+#page-help-flyout {
+	display: none;
+	position: absolute;
+	z-index: 102;
+	top: $page-header-h1-height;
+	right: 0;
+	padding: 10px 20px;
+	width: 100%;
+	max-width: 360px;
+	background: $page-help-background-color;
+	color: $page-help-text-color;
+	height: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 26px;
+	z-index: 125;
+	a {
+		color: inherit;
+		text-decoration: underline;
+	}
+	&.help-open {
+		display: block;
+	}
+}

@@ -1,0 +1,133 @@
+@import '_fonts';
+@import '_variables';
+@import '_mixins';
+@import '_header';
+@import '_page-header';
+@import '_sidebar';
+@import '_badges';
+@import '_ajax';
+@import '_forms';
+@import '_tables';
+@import '_tabs';
+@import '_gritter';
+@import '_buttons';
+@import '_draggable';
+@import '_mobile.scss';
+
+html,
+body {
+	height: 100%;
+	padding: 0;
+	min-width: $min-site-width;
+}
+body {
+	font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 24px;
+	background-color: $main-bg-color;
+}
+.red {
+	background-color: $red;
+	color: $text-on-red;
+}
+.yellow {
+	background-color: $yellow;
+	color: $text-on-yellow;
+	font-weight: 400;
+}
+.green {
+	background-color: $green;
+	color: $text-on-green;
+}
+.light-bold {
+	font-weight: 600;
+}
+.bold {
+	font-weight: 700;
+}
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+.null-style {
+	border: none;
+	background: transparent;
+	color: inherit;
+}
+.hide-me {
+	/* this is different from .hidden in that there is no !important modifier */
+	display: none;
+}
+.italic {
+	font-style: italic;
+}
+.nowrap {
+	white-space: nowrap;
+}
+.no-padding {
+	padding: 0;
+}
+/* Main */
+/* See _sidebar.scss for some left margin settings */
+#main-page-wrapper {
+	padding: 0 0 0;
+	min-height: 100%;
+	height: auto !important; //This is required to be sure the div draws correctly when scrolling.
+	height: 100%;
+	margin-bottom: (-$footer-height);
+}
+body.secure-marking #main-page-wrapper {
+	padding: $nav-security-height 0 0;
+}
+#content-wrapper {
+	position: relative;
+	padding: 0;
+	font-weight: 400;
+}
+#main-content {
+	padding: 10px 20px 20px;
+}
+#main-content-wrapper {
+	padding-top: $page-header-h1-height;
+}
+
+/* Footer */
+#footer-spacer, #push {
+	clear: both;
+	height: $footer-height;
+}
+
+/* security bars */
+.security-marking {
+	position: fixed;
+	height: $footer-height;
+	width: 100%;
+	text-align: center;
+	z-index: 10000;
+	line-height: $footer-height;
+	p {
+		margin: 0;
+	}
+}
+.security-topper {
+	top: 0;
+
+}
+.security-footer {
+	bottom: 0;
+}
+
+/* Progress Bar */
+.progress-bar {
+	background-color: $sub-header-color;
+}

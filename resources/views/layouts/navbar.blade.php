@@ -11,13 +11,16 @@
 
             <a class="navbar-brand" href="{{ url('') }}">Lunch</a>
           </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="{{ Request::is('/') ? 'active' : ''}}"><a href="{{ url('/')}}">Home</a></li>
-              <li class="{{ Request::is('location*') ? 'active' : ''}}"><a href="{{ url('location')}}">Places</a></li>
-              <li class="{{ Request::is('cuisine*') ? 'active' : ''}}"><a href="{{ url('cuisine')}}">Cuisine</a></li>
-
-            </ul>
-          </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
+
+<div id="site-sidebar-wrapper" style="min-height: 4715px;">
+    <div id="site-sidebar" class="sidebar">
+        <ul class="nav nav-sidebar">
+            <li class="sidebar-toggler-wrapper"><i class="fa fa-2x fa-angle-double-left"></i></li>
+            <li class="{{ Request::is('/calendar*') ? 'active' : ''}}"><a href="{{ url('/')}}">Home</a></li>
+            <li class="{{ Request::is('location*') ? 'active' : ''}}"><a href="{{ url('location')}}">Places</a></li>
+            <li class="{{ Request::is('cuisine*') ? 'active' : ''}}"><a href="{{ url('cuisine')}}">Cuisine</a></li>
+        </ul>
+    </div>
+</div>

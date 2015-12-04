@@ -1,0 +1,36 @@
+$red:		#cb2026;
+$green:		#3faa29;
+
+#pw-validate-form {
+	display: table;
+	label{ 
+		min-width: 130px;
+		text-align: right;
+		margin-right: 5px;
+	}
+	#userPWRequire {
+		display: none;
+		padding: 15px 20px 5px;
+		max-width: 250px;
+		margin: 15px auto 10px;
+		ul {
+			padding-left: 10px;
+			list-style: none;
+			li {
+				&.no {
+					.fa {
+						color: $red;
+					}
+				}
+				&.yes {
+					.fa {
+						color: $green;
+						&:before {
+							content: "\f00c";
+						}
+					}
+				}
+			}
+		}
+	}
+}

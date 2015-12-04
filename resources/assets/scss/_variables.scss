@@ -1,0 +1,84 @@
+/* GLOBALS */
+$main-header-color:										#162956;
+$sub-header-color:										#6da9cf;
+$red:													#cb2026;
+$yellow:												#fabd08;
+$green:													#379430;
+$teal:													#00adb5;
+$text-on-red:											#fff;
+$text-on-yellow:										#000;
+$text-on-green:											#fff;
+$primary-button-color:									$sub-header-color;
+
+$min-site-width:										753px; //Bootstrap's CSS will make this 15px larger than you set it
+
+$popover-box-shadow:									0 5px 10px rgba(0, 0, 0, .2);
+
+/* NAV */
+$nav-bg-color:											$main-header-color;
+$nav-security-height:									30px;
+$nav-height:											66px;
+$nav-text-color:										#fff;
+$nav-nrl-text-color:									#89b4e0;
+$nav-security-shadow:									darken($main-header-color, 12%);
+$nav-search-bg:											#18274e;
+$nav-search-placeholder:								#6c788f;
+
+$alert-color:											#fff;
+$alert-badge-color:										#000;
+$alert-badge-color-bg:									$yellow;
+$alert-icon-color:										#666;
+$alert-new-icon-color:									#c00;
+
+/* Sidebar */
+$sidebar-width:											202px;
+$sidebar-closed-width:									46px;
+
+$sidebar-bg-color:										#4c4f59;
+$sidebar-text-color:									#fff;
+$sidebar-highlight-color:								#686971;
+$page-sidebar-bg-color:									#d0d0d0;
+$page-sidebar-text-color:								#000;
+
+$sidebar-toggle-bg-color:								#3c3c3c;
+$sidebar-toggle-text-color:								#686971;
+$sidebar-toggle-bg-color-active:						darken($sidebar-toggle-bg-color,3%);
+$sidebar-toggle-text-color-active:						lighten($sidebar-toggle-text-color,5%);
+
+$page-sidebar-toggle-bg-color:							#b8b8b8;
+$page-sidebar-toggle-text-color:						#d0d0d0;
+$page-sidebar-toggle-bg-color-active:					darken(#b8b8b8,3%);
+$page-sidebar-toggle-text-color-active:					lighten(#d0d0d0,10%);
+
+/* Page Header */
+$header-bg-color:										$sub-header-color;
+$header-text-color:										#fff;
+$page-header-h1-height:									36px;
+$page-header-help-text-color:							#fff;
+$page-help-background-color:							rgba(0,90,127,1);
+$page-help-text-color:									#fff;
+
+/* Tabs */
+$tab_text_color: 										#333;
+$tab_bg_color: 											#c6c6c6;
+$tab_hover_bg_color: 									#fff;
+$tab_active_bg_color: 									#d6d6d6;
+$tab_container_bg_color:								$tab_bg_color;
+
+/* Tables */
+$table-header-bg-color:									#d6d6d6;
+$table-border-color:									#d6d6d6;
+$table-text-color:										#333;
+$table-row-odd-bg-color:								#f2f2f2;
+$table-row-even-bg-color:								#fff;
+
+
+$label-align-width:										150px;
+$label-align-width-sm:									1100px;
+$label-align-width-lg:									1200px;
+
+/* Main Content */
+$main-bg-color:											#ebebeb;
+
+/* Footer */
+$footer-height:											$nav-security-height;

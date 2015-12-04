@@ -1,0 +1,49 @@
+.ajax {
+	position: relative !important;
+}
+.ajax-indicator {
+	display: none;
+	z-index: -1;
+}
+.ajax-active .ajax-indicator {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.7);
+	vertical-align: middle;
+	border-radius: inherit;
+	text-align: center;
+	color: #fff;
+	padding-top: 4px;
+	z-index: 300;
+	
+	i {
+		top: 50%;
+		left: 50%;
+		position: absolute;
+		margin: -.5em 0 0 -.5em;
+		font-size: 1em;
+		line-height: 1em;
+		vertical-align: 0;
+		
+		&.fa-lg {
+			margin: -0.75em 0 0 -0.75em;
+			font-size: 1.5em;
+			line-height: 1.5em;
+		}
+	}
+}
+.ajax-active:hover,
+.ajax-active .ajax-indicator:hover {
+	cursor: not-allowed;
+}
+div.ajax-active .ajax-indicator {
+	padding-top: 15px;
+}
+.ajax .popover {
+	color: #666;
+	min-width: 140px;
+}

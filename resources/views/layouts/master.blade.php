@@ -1,39 +1,11 @@
 <!DOCTYPE html>
     <head>
-        <title>Lunch - @yield('title')</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,700" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
-
+        @include('layouts.header')
         <style>
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 300;
-                font-family: 'Lato';
-            }
-
-            th {
-                font-weight: 700;
-                text-align: center;
-            }
-
-            .container {
-                text-align: center;
-                vertical-align: middle;
-            }
-
             .content {
                 text-align: center;
                 display: inline-block;
                 margin-top: 60px;
-            }
-
-            .title {
-                font-size: 96px;
             }
         </style>
     </head>
@@ -48,4 +20,5 @@
             </div>
         </div>
     </body>
+    <script src="{{ elixir('js/all.js') }}"></script>
 </html>

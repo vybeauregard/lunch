@@ -1,0 +1,32 @@
+/* 
+	Overrides the default Gritter styles for our usage
+	Note that the jquery.gritter.js file has been altered as well.
+*/
+#gritter-notice-wrapper {
+	width: 400px;
+}
+#gritter-notice-wrapper.top-center {
+	/* center the element */
+	right: 0;
+	left: 0;
+	margin-right: auto;
+	margin-left: auto;
+}
+.gritter-item {
+	padding: 10px 14px;
+	background-image: none;
+	background-color: rgba(255,255,255,0.95);
+	border: 1px solid #b0b0b0;
+	@include border-radius(8px);
+	color: #000;
+	font-size: 13px;
+	font-family: inherit;
+	font-weight: 400;
+	box-shadow: $popover-box-shadow;
+}
+.gritter-title {
+	text-shadow: none;
+	padding: 0 0 5px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #e5e5e5;
+}

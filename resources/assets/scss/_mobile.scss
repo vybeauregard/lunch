@@ -1,0 +1,53 @@
+@media only screen and (max-width: 800px) {
+	body.site-sidebar #main-content-wrapper,
+	body.page-sidebar #main-content {
+		margin-left: $sidebar-closed-width;
+	}
+
+	body.site-sidebar.site-sidebar-closed #main-content-wrapper,
+	body.page-sidebar.page-sidebar-closed #main-content {
+		margin-left: $sidebar-closed-width;
+	}
+
+	/* Page Header H1 padding setting for main sidebar configurations */
+	body.site-sidebar #page-header {
+		padding-left: $sidebar-closed-width;
+	}
+	body.site-sidebar.site-sidebar-closed #page-header {
+		padding-left: $sidebar-closed-width;
+	}
+	
+	#site-sidebar-wrapper {
+		float: none;
+		position: absolute;
+		left: 0;
+		top: $nav-height;
+		bottom: 0;
+	}
+
+	#page-sidebar-wrapper {
+		float: none;
+		position: absolute;
+		left: 0;
+		top: $page-header-h1-height;
+		bottom: 0;
+		
+		#page-sidebar {
+			padding-top: 10px;
+		}
+	}
+
+	body.secure-marking #site-sidebar-wrapper {
+		top: $nav-height + $nav-security-height;
+	}
+
+	body.site-sidebar.page-sidebar {
+		#page-sidebar-wrapper {
+			left: $sidebar-closed-width;
+		}
+	}
+
+
+
+
+}
