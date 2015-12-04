@@ -17,8 +17,14 @@ class Place extends Model
 
     protected $table = "place";
 
-    public function cuisine() {
+    public function cuisine()
+    {
         return $this->belongsToMany('App\Models\Cuisine', 'place_cuisine', 'place_id', 'cuisine_id');
+    }
+
+    public function visit()
+    {
+        return $this->hasMany('App\Models\Visit');
     }
 
 }

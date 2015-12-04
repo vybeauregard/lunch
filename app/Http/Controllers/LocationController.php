@@ -18,7 +18,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $places = Place::with('cuisine')->get();
+        $places = Place::with('cuisine')->with('visit')->get();
         return view('location.index', compact('places'));
     }
 
@@ -41,9 +41,9 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        
+
         Place::create($input);
-        
+
         return redirect('location');
     }
 
@@ -91,7 +91,7 @@ class LocationController extends Controller
 
         $place->fill($input)->save();
         $place->cuisine()->sync($request->cuisine);
-        
+
 //        Session::flash('flash_message', 'Task successfully added!');
         return redirect()->back();
     }
@@ -106,5 +106,5 @@ class LocationController extends Controller
     {
         //
     }
-    
+
 }
