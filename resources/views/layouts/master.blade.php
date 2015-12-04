@@ -2,7 +2,7 @@
     <head>
         <title>Lunch - @yield('title')</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,700" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
 
         <style>
@@ -14,6 +14,11 @@
                 display: table;
                 font-weight: 300;
                 font-family: 'Lato';
+            }
+
+            th {
+                font-weight: 700;
+                text-align: center;
             }
 
             .container {

@@ -18,8 +18,8 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        $begin = new Carbon("2 weeks ago");
-        $begin = $begin->startOfWeek()->format('U');
+        $begin = new Carbon();
+        $begin = $begin->subWeeks(2)->format('U');
         return redirect()->route('calendar.show', [$begin]);
     }
 
@@ -51,7 +51,7 @@ class CalendarController extends Controller
          $date = Carbon::createFromFormat('U', $date)->startOfWeek()->toDateString();
          $begin = Carbon::parse($date);
          $end = Carbon::parse($date);
-         $end = $end->addDays(20);
+         $end = $end->addDays(19);
          while($begin->lte($end)) {
              $datelist[] = $begin->toDateString();
              $begin = $begin->addDay();
