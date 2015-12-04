@@ -18,9 +18,21 @@
     <div id="site-sidebar" class="sidebar">
         <ul class="nav nav-sidebar">
             <li class="sidebar-toggler-wrapper"><i class="fa fa-2x fa-angle-double-left"></i></li>
-            <li class="{{ Request::is('/calendar*') ? 'active' : ''}}"><a href="{{ url('/')}}">Home</a></li>
-            <li class="{{ Request::is('location*') ? 'active' : ''}}"><a href="{{ url('location')}}">Places</a></li>
-            <li class="{{ Request::is('cuisine*') ? 'active' : ''}}"><a href="{{ url('cuisine')}}">Cuisine</a></li>
+            <li class="{{ Request::is('calendar*') ? 'active' : ''}}">
+                <span class="title-wrapper">
+                    <i class="fa fa-home"></i><a href="{{ url('/')}}">Home</a>
+                </span>
+            </li>
+            <li class="{{ Request::is('location*') ? 'active' : ''}}">
+                <span class="title-wrapper">
+                    <i class="fa fa-map-marker"></i><a href="{{ url('location')}}">Places</a>
+                </span>
+                </li>
+            <li class="{{ Request::is('cuisine*') ? 'active' : ''}}">
+                <span class="title-wrapper">
+                    <i class="fa fa-cutlery"></i><a href="{{ url('cuisine')}}">Cuisine</a>
+                </span>
+            </li>
         </ul>
     </div>
 </div>

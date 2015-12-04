@@ -2,7 +2,7 @@
     <head>
         @include('layouts.header')
         <style>
-            .content {
+            .main-content {
                 text-align: center;
                 display: inline-block;
                 margin-top: 60px;
@@ -11,12 +11,12 @@
     </head>
     <body>
         @include('layouts.navbar')
-
-        <div class="container">
-            <div class="content">
-                <h1>@yield('title')</h1>
-                @yield('content')
-
+        <div id="main-page-wrapper">
+            <div class="container">
+                <div class="main-content">
+                    <h1>@yield('title')</h1>
+                    @yield('content')
+                </div>
             </div>
         </div>
     </body>
