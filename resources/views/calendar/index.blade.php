@@ -25,15 +25,26 @@ Lunch!
                         <a href="{{ url('/visit', Carbon\Carbon::parse($date)->format('U')) }}/edit">{{ $visits[$date]->place->placename }}</a><br />
                         ({{ $visits[$date]->place->location }})
                     </td>
+                    @elseif(Carbon\Carbon::parse($date)->isToday())
+                    <a href="{{ url('/visit', Carbon\Carbon::parse($date)->format('U')) }}/create" class="btn btn-default">Help me pick!</a>
                     @elseif(Carbon\Carbon::parse($date) < Carbon\Carbon::now())
-                        <a href="{{ url('/visit', Carbon\Carbon::parse($date)->format('U')) }}/create" class="btn btn-default">Choose!</a>
+                        <a href="{{ url('/visit', Carbon\Carbon::parse($date)->format('U')) }}/create" class="btn btn-default">Catch Up!</a>
                         @endif
                     @endif
             @endif
         @endforeach
     </tbody></table>
-<a href="{{ url('/calendar', Carbon\Carbon::parse($datelist[0])->subDay()->format('U')) }}" class="btn btn-primary pull left">&lt; Previous Week</a>
+    <div class="row">
+        <div class="col-md-2">
+<a href="{{ url('/calendar', Carbon\Carbon::parse($datelist[0])->subDays(20)->format('U')) }}" class="btn btn-primary pull left">&lt; Previous Week</a>
+        </div>
+        <div class="col-md-8"></div>
+        <div class="col-md-2">
 @if(Carbon\Carbon::parse($date)->isPast())
-<a href="#" class="btn btn-primary pull right">Next Week &gt;</a>
+
+<a href="{{ url('/calendar', Carbon\Carbon::parse($datelist[20])->addDay()->format('U')) }}" class="btn btn-primary pull right">Next Week &gt;</a>
+
 @endif
+    </div>
+</div>
 @stop

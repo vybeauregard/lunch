@@ -14,7 +14,7 @@
 Route::get('/', 'CalendarController@index');
 Route::resource('cuisine', 'CuisineController');
 Route::resource('location', 'LocationController');
-Route::resource('calendar', 'CalendarController');
+Route::resource('calendar', 'CalendarController', ['except' => ['create', 'edit', 'update', 'store', 'destroy']]);
 
 Route::resource('visit', 'VisitController', ['except' => 'create']);
 Route::get('visit/{visit}/create', 'VisitController@create');

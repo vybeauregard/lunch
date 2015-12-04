@@ -12,93 +12,43 @@ use Carbon\Carbon;
 class CalendarController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a 3-week calendar starting from 2 weeks ago.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $begin = Carbon::parse("2 mondays ago")->format('U');
+        $begin = new Carbon("2 weeks ago");
+        $begin = $begin->startOfWeek()->format('U');
         return redirect()->route('calendar.show', [$begin]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display the specified 3-week calendar.
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
+     * @param  int  $date
      * @return \Illuminate\Http\Response
      */
     public function show($date)
     {
-        $begin = Carbon::createFromFormat('U', $date);
-        $end = Carbon::createFromFormat('U', $date);
-        $end->subWeeks(3);
+        $date = Carbon::createFromFormat('U', $date)->startOfWeek()->toDateString();
+        $begin = Carbon::parse($date);
+        $end = Carbon::parse($date);
+        $end = $end->addDays(20);
         $datelist = [];
         while($begin->lte($end)) {
             $datelist[] = $begin->toDateString();
             $begin = $begin->addDay();
         }
-        return $end;
+        $begin = Carbon::parse($date);
+        $end = Carbon::parse($date);
+        $end = $end->addDays(20);
         $visits = Visit::with('place')
-            ->where('date', '>=', $begin)
-            ->where('date', '<=', $end)
+            ->where('date', '>=', $begin->format('Y-m-d'))
+            ->where('date', '<=', $end->format('Y-m-d'))
             ->get();
+        // return [$begin->format('Y-m-d'), $end->format('Y-m-d')];
         $visits = $visits->keyBy('date');
         return view('calendar.index', compact('visits', 'datelist'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
