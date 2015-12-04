@@ -6,7 +6,8 @@ Lunch!
 
 @section('content')
     <h3>Today's random choice:</h3>
-    <h1>{{ $place->placename }} ({{ $place->location}})</h1>
+    <h1>{{ $place->placename }}</h1>
+    <h2>({{ $place->location}})</h2>
     <h3>
         @foreach ($place->cuisine as $cuisine)
         {{ $cuisine->cuisinename }}@unless ($cuisine == $place->cuisine->last()),
