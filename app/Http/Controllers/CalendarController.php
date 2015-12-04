@@ -19,7 +19,7 @@ class CalendarController extends Controller
     public function index()
     {
         $begin = new Carbon();
-        $begin = $begin->subWeeks(2)->format('U');
+        $begin = $begin->subWeeks(2)->startOfDay()->format('U');
         return redirect()->route('calendar.show', [$begin]);
     }
 
