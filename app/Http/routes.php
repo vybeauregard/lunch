@@ -16,7 +16,9 @@ Route::resource('cuisine', 'CuisineController');
 Route::resource('location', 'LocationController');
 Route::resource('calendar', 'CalendarController', ['except' => ['create', 'edit', 'update', 'store', 'destroy']]);
 
-Route::resource('visit', 'VisitController', ['except' => 'create']);
-Route::get('visit/{visit}/create', 'VisitController@create');
+Route::group(['prefix' => 'visit', 'as' => 'v.'], function(){
+    Route::resource('visit', 'VisitController', ['except' => 'create']);
+    Route::get('{visit}/create', 'VisitController@create');
+});
 
 Route::resource('pick', 'PickController', ['except' => ['create', 'show', 'edit', 'update', 'destroy']]);
