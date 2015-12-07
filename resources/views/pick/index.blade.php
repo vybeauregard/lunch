@@ -23,10 +23,10 @@ Lunch!
     </div>
     <div class="row">
     <div class="row"><div class="col-md-12"></div></div>
-        <div class="col-md-6">
+        <div class="col-md-6 pull-left">
             <a href="{{ route('pick.index') }}" class="btn btn-lg btn-warning">Not feeling it.<br />What else you got?</a>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 pull-right">
             <a href="{{ url('/visit', Carbon\Carbon::now()->format('U')) }}/create" class="btn btn-lg btn-primary">I'm an adult.<br />I do what I want.</a>
         </div>
     </div>

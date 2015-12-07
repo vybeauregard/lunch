@@ -9,16 +9,44 @@
             }
         </style>
     </head>
-    <body>
-        @include('layouts.navbar')
+    <body class="site-sidebar page-sidebar page-sidebar-closed">
+        <!--
+        <div class="security-marking security-topper green">
+            <p>@yield('security-marking')</p>
+        </div>
+        -->
         <div id="main-page-wrapper">
-            <div class="container">
-                <div class="main-content">
+            @include('layouts.navbar')
+            @include('layouts.site-sidebar')
+            <div id="content-wrapper" class="main site-sidebar page-sidebar">
+                <div id="page-header">
+                    <div id="page-help">
+                        <i class="fa fa-question"></i><a href="#">Help</a>
+                    </div>
                     <h1>@yield('title')</h1>
-                    @yield('content')
+                </div>
+                <div id="page-help-flyout">
+                    @yield('help-text')
+                </div>
+
+                <div id="main-content-wrapper">
+                    <div id="main-content">
+
+                        @yield('content')
+
+                    </div> <!-- END MAIN CONTENT -->
                 </div>
             </div>
+            <div id="push">&nbsp;</div>
         </div>
+        <div id ="footer-spacer">&nbsp;</div>
+        <footer class="security-marking security-footer green">
+            <p>@yield('security-marking')</p>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+
+        <script src="{{ elixir('js/all.js') }}"></script>
     </body>
-    <script src="{{ elixir('js/all.js') }}"></script>
 </html>

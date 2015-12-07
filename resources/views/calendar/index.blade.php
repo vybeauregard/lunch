@@ -49,12 +49,12 @@ Lunch!
         </table>
     </div>
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2 pull-left">
             <a href="{{ url('/calendar', Carbon\Carbon::parse($datelist[0])->subDays(20)->format('U')) }}"
                 class="btn btn-primary pull left">&lt; Previous Week</a>
         </div>
         <div class="col-md-8"></div>
-        <div class="col-md-2">
+        <div class="col-md-2 pull-right">
             @if(Carbon\Carbon::parse($date)->isPast())
             <a href="{{ url('/calendar', Carbon\Carbon::parse($date)->endOfWeek()->addWeek()->format('U')) }}"
                 class="btn btn-primary pull right">Next Week &gt;</a>
