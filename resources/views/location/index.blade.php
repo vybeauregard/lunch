@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('labcoat.master')
 
 @section('title')
 Places
