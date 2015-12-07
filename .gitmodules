@@ -1,0 +1,3 @@
+[submodule "resources/views/labcoat"]
+	path = resources/views/labcoat
+	url = git@git.ccs.nrl.navy.mil:beaurega/labcoat.git
